@@ -1,0 +1,15 @@
+# Keeps deployed images small -- excludes dev-only, huge, or secret files
+venv/
+.venv/
+__pycache__/
+*.pyc
+.git/
+.github/
+.env
+notebooks/
+data/raw/
+*.ipynb
+.ipynb_checkpoints/
+frontend/
+tests/
+.pytest_cache/

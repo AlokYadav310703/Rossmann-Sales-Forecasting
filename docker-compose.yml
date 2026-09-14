@@ -1,0 +1,28 @@
+# Local multi-container testing only. In production, backend and frontend
+# are deployed as SEPARATE services (backend -> Render, frontend -> Streamlit
+# Community Cloud / HF Spaces) -- this file is not used for that deployment,
+# it's just for `docker-compose up` on your own machine.
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./models:/app/models
+      - ./data/processed:/app/data/processed
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend

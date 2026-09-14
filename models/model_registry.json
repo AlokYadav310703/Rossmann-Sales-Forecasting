@@ -1,0 +1,93 @@
+{
+  "1": {
+    "store_id": 1,
+    "models": {
+      "seasonal_naive": {
+        "mape": 16.152906073677496
+      },
+      "sarima": {
+        "mape": 8.226399441270695,
+        "path": "models/sarima_store_1.pkl"
+      },
+      "prophet": {
+        "mape": 8.230532199483395,
+        "path": "models/prophet_store_1.pkl"
+      }
+    },
+    "validation_weeks": 6
+  },
+  "2": {
+    "selected_model": "prophet",
+    "backtest_mean_mape": 11.615985096674379,
+    "backtest_n_folds": 3,
+    "backtest_horizon_days": 14
+  },
+  "85": {
+    "selected_model": "sarima",
+    "backtest_mean_mape": 7.204039393623842,
+    "backtest_n_folds": 3,
+    "backtest_horizon_days": 14
+  },
+  "262": {
+    "selected_model": "sarima",
+    "backtest_mean_mape": 5.72032658439651,
+    "backtest_n_folds": 3,
+    "backtest_horizon_days": 14
+  },
+  "733": {
+    "selected_model": "prophet",
+    "backtest_mean_mape": 6.280200443568461,
+    "backtest_n_folds": 3,
+    "backtest_horizon_days": 14
+  },
+  "lstm_pooled": {
+    "store_ids": [
+      1,
+      2,
+      85,
+      262,
+      733
+    ],
+    "lookback_days": 14,
+    "feature_columns": [
+      "day_of_week_sin",
+      "day_of_week_cos",
+      "month_sin",
+      "month_cos",
+      "is_weekend",
+      "promo",
+      "school_holiday",
+      "is_promo2_active",
+      "promo_start_flag",
+      "competition_distance",
+      "months_since_competition_open",
+      "sales_lag_1",
+      "sales_lag_7",
+      "sales_lag_14",
+      "sales_lag_28",
+      "sales_rolling_mean_7",
+      "sales_rolling_mean_30",
+      "sales_rolling_std_7",
+      "sales_rolling_min_7",
+      "sales_rolling_max_7",
+      "store_type_a",
+      "store_type_b",
+      "store_type_c",
+      "store_type_d",
+      "assortment_a",
+      "assortment_b",
+      "assortment_c"
+    ],
+    "overall_mape": 8.35377754999259,
+    "per_store_mape": {
+      "1": 10.220642618041884,
+      "2": 13.291300833637793,
+      "85": 7.931485297467228,
+      "262": 6.567773745847082,
+      "733": 4.729740733782466
+    },
+    "model_path": "models/lstm_pooled_model.keras",
+    "feature_scaler_path": "models/lstm_feature_scaler.pkl",
+    "target_scaler_path": "models/lstm_target_scaler.pkl"
+  }
+}

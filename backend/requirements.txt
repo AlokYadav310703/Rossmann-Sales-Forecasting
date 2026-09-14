@@ -1,0 +1,13 @@
+# Backend-only dependencies -- deliberately excludes streamlit, jupyter,
+# and other dev/notebook-only packages so the deployed image stays small.
+fastapi
+uvicorn[standard]
+pandas
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pyarrow
+statsmodels
+prophet
+tensorflow
+scikit-learn
