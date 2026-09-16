@@ -14,6 +14,7 @@ import os
 import pandas as pd
 import requests
 import streamlit as st
+import time
 
 API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
 
@@ -53,12 +54,37 @@ def fetch_history(store_id: int, days: int = 60):
     return resp.json()["history"]
 
 
-def check_api_health():
-    try:
-        resp = requests.get(f"{API_BASE_URL}/health", timeout=5)
-        return resp.json()
-    except Exception:
-        return None
+# def check_api_health():
+#     try:
+#         resp = requests.get(f"{API_BASE_URL}/health", timeout=5)
+#         return resp.json()
+#     except Exception:
+#         return None
+
+def check_api_health(max_wait=180):
+    start_time = time.time()
+
+    while time.time() - start_time < max_wait:
+        try:
+            resp = requests.get(f"{API_BASE_URL}/health", timeout=10)
+
+            if resp.status_code == 200:
+                return resp.json()
+
+        except requests.exceptions.RequestException:
+            pass
+
+        elapsed = int(time.time() - start_time)
+        remaining = max_wait - elapsed
+
+        st.info(
+            f"Backend is waking up... Please wait. "
+            f"Time remaining: {remaining} seconds"
+        )
+
+        time.sleep(5)
+
+    return None
 
 
 # ------------------------------------------------------------------
