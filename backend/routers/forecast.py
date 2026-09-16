@@ -6,8 +6,8 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Query
 
-from backend.schemas import ForecastResponse, ModelsResponse, HealthResponse, HistoryResponse
-from backend.services import forecast_service
+from schemas import ForecastResponse, ModelsResponse, HealthResponse, HistoryResponse
+from services import forecast_service
 
 router = APIRouter()
 
