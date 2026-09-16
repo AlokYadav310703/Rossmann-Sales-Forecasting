@@ -10,7 +10,7 @@ Then visit http://127.0.0.1:8000/docs for interactive API docs.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import forecast
+from backend.routers import forecast
 
 app = FastAPI(
     title="Rossmann Sales Forecasting API",
