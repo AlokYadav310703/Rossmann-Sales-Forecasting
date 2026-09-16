@@ -16,7 +16,7 @@ import requests
 import streamlit as st
 import time
 
-API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://rossmann-sales-forecasting-cjy7.onrender.com")
 
 st.set_page_config(page_title="Rossmann Sales Forecasting", layout="wide")
 
@@ -79,7 +79,6 @@ def check_api_health(max_wait=180):
 
         st.info(
             f"Backend is waking up... Please wait. "
-            f"Time remaining: {remaining} seconds"
         )
 
         time.sleep(5)
