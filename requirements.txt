@@ -11,10 +11,4 @@ fastapi
 uvicorn[standard]
 streamlit
 requests
-tensorflow
-
-fastapi
-uvicorn[standard]
-
-streamlit
 protobuf==6.31.1

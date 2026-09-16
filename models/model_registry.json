@@ -17,16 +17,38 @@
     "validation_weeks": 6
   },
   "2": {
-    "selected_model": "prophet",
-    "backtest_mean_mape": 11.615985096674379,
-    "backtest_n_folds": 3,
-    "backtest_horizon_days": 14
+    "store_id": 2,
+    "models": {
+      "seasonal_naive": {
+        "mape": 26.329373524789418
+      },
+      "sarima": {
+        "mape": 14.6769915720308,
+        "path": "models/sarima_store_2.pkl"
+      },
+      "prophet": {
+        "mape": 11.506228650817416,
+        "path": "models/prophet_store_2.pkl"
+      }
+    },
+    "validation_weeks": 6
   },
   "85": {
-    "selected_model": "sarima",
-    "backtest_mean_mape": 7.204039393623842,
-    "backtest_n_folds": 3,
-    "backtest_horizon_days": 14
+    "store_id": 85,
+    "models": {
+      "seasonal_naive": {
+        "mape": 14.632642989929096
+      },
+      "sarima": {
+        "mape": 7.214480712553717,
+        "path": "models/sarima_store_85.pkl"
+      },
+      "prophet": {
+        "mape": 7.235586645921159,
+        "path": "models/prophet_store_85.pkl"
+      }
+    },
+    "validation_weeks": 6
   },
   "262": {
     "selected_model": "sarima",
