@@ -114,11 +114,35 @@ store_ids = sorted(store_lookup.keys())
 
 with st.sidebar:
     st.header("⚙️ Forecast Settings")
-    selected_store = st.selectbox("Store", store_ids, format_func=lambda x: f"Store {x}")
-    horizon = st.slider("Forecast horizon (days)", min_value=7, max_value=30, value=14, step=7)
-    compare_mode = st.checkbox("Compare against seasonal-naive baseline", value=True)
+
+    st.sidebar.link_button(
+        "View Project on GitHub",
+        "https://github.com/AlokYadav310703/Rossmann-Sales-Forecasting",
+        use_container_width=True
+    )
+    st.caption(
+            f"**Note:** Select Store or Move the Slider to automatically run the Forecast "
+        )
+
+    selected_store = st.selectbox(
+        "Store", store_ids, format_func=lambda x: f"Store {x}"
+    )
+
+    horizon = st.slider(
+        "Forecast horizon (days)",
+        min_value=7,
+        max_value=30,
+        value=14,
+        step=7
+    )
+
+    compare_mode = st.checkbox(
+        "Compare against seasonal-naive baseline",
+        value=True
+    )
 
     st.divider()
+
     st.caption(
         f"**Note:** only {len(store_ids)} stores currently have trained "
         "SARIMA/Prophet/LSTM models (the sample used during development). "
