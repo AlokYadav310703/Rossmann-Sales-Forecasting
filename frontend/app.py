@@ -16,7 +16,7 @@ import requests
 import streamlit as st
 import time
 
-API_BASE_URL = os.getenv("API_BASE_URL", "https://rossmann-sales-forecasting-cjy7.onrender.com/")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://rossmann-sales-forecasting-cjy7.onrender.com")
 
 st.set_page_config(page_title="Rossmann Sales Forecasting", layout="wide")
 
