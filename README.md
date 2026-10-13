@@ -1,5 +1,8 @@
+
 # 🛒 Rossmann Sales Forecasting
-**View Project:** https://rossmann-sales-forecasting-160726.streamlit.app/
+**View Live Project:** https://rossmann-sales-forecasting-160726.streamlit.app/
+
+https://github.com/user-attachments/assets/cea02d04-2bc7-4d94-ac31-09df54325892
 
 ## Business Question
 
