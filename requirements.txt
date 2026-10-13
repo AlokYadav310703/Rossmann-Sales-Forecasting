@@ -1,7 +1,6 @@
 pandas
 sqlalchemy
 psycopg2-binary
-psycopg[binary]
 python-dotenv
 pyarrow
 statsmodels
@@ -12,4 +11,3 @@ fastapi
 uvicorn[standard]
 streamlit
 requests
-protobuf==6.31.1

@@ -32,6 +32,9 @@ def load_stores(engine) -> None:
     })
 
     # Type cleanup
+    # NOTE: .astype(bool) alone produces numpy.bool_ values, which psycopg2
+    # cannot adapt directly when inserting into Postgres -- converting through
+    # .astype(object) forces native Python bool objects instead, which insert cleanly.
     df["promo2"] = df["promo2"].astype(bool).astype(object)
 
     df.to_sql("stores", engine, if_exists="append", index=False)
@@ -56,6 +59,10 @@ def load_sales(engine, chunksize: int = 50_000) -> None:
         })
 
         # Type cleanup
+        # .astype(object) after .astype(bool) converts numpy.bool_ -> native
+        # Python bool, which psycopg2 can adapt (this was the actual cause of
+        # the PendingRollbackError -- psycopg2 silently failed on numpy.bool_
+        # values, leaving the transaction in an error state).
         chunk["open"] = chunk["open"].astype(bool).astype(object)
         chunk["promo"] = chunk["promo"].astype(bool).astype(object)
         chunk["school_holiday"] = chunk["school_holiday"].astype(bool).astype(object)

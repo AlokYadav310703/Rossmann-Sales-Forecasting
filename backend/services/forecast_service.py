@@ -16,10 +16,10 @@ import os
 import pickle
 from datetime import timedelta
 from functools import lru_cache
-from sqlalchemy import create_engine, text
 
 import numpy as np
 import pandas as pd
+from sqlalchemy import create_engine, text
 
 from src.config import DATABASE_URL, MODELS_DIR, PROCESSED_DATA_DIR
 
